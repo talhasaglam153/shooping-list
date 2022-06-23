@@ -1,7 +1,8 @@
-package com.tcoding.shoppinglist.data
+package com.tcoding.shoppinglist.data.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.tcoding.shoppinglist.data.entities.ShoppingItem
 
 @Dao
 interface ShoppingDao {
@@ -13,6 +14,6 @@ interface ShoppingDao {
     suspend fun delete(item: ShoppingItem)
 
     @Query("SELECT * FROM shopping_items")
-    suspend fun getAllShoppingItems() : LiveData<List<ShoppingItem>>
+    fun getAllShoppingItems() : LiveData<List<ShoppingItem>>
 
 }
